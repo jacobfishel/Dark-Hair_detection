@@ -1,0 +1,13 @@
+  body {
+    background-color: #121212; /*Dark background */
+    color: #e0e0e0; /*Light text color */
+    font-family: Arial, sans-serif;
+  }
+
+  h1, p {
+    margin: 20px;
+  }
+
+  /*left off here. trying to get light theme on the webpage
+  after this, try to start implementing buttons to flip through the pages, then add
+  functionality to it all.*/
