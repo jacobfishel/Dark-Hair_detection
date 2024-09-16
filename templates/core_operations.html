@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <title>Core Operations</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Welcome to Core Operations</h1>
+
+<table>
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Cell 1</td>
+                <td>Row 1, Cell 2</td>
+                <td>Row 1, Cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, Cell 1</td>
+                <td>Row 2, Cell 2</td>
+                <td>Row 2, Cell 3</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+        <a href="{{ url_for('views.drawing_shapes_and_text_on_images') }}">Next Section: Drawing Shapes and Text on Images</a>
+        <a href="{{ url_for('views.home')}}">Home</a>
+
+
+
+    </div>
+
+    
+</body>
+</html>

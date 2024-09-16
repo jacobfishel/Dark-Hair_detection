@@ -1,13 +1,71 @@
-  body {
-    background-color: #121212; /*Dark background */
-    color: #e0e0e0; /*Light text color */
-    font-family: Arial, sans-serif;
-  }
+body {
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text color */
+  font-family: Arial, sans-serif; /* Font family */
+  margin: 20px;
+}
 
-  h1, p {
-    margin: 20px;
-  }
+a {
+  display: block;
+  color: #007BFF; /* Light purple for links */
+  text-decoration: none;
+  margin: 10px 0;
+}
 
-  /*left off here. trying to get light theme on the webpage
-  after this, try to start implementing buttons to flip through the pages, then add
-  functionality to it all.*/
+a:hover {
+  color: #3700b3; /*Darker purple on hover*/
+  text-decoration: underline;
+}
+
+button {
+  background-color: #6200ea; /* Purple background for buttons */
+  color: #ffffff; /* White text for buttons */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3700b3; /* Darker purple on button hover */
+}
+
+/* Button class that can be used for links as well */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007BFF; /* Button background color */
+  text-align: center;
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker button color on hover */
+}
+
+
+/*Styling for tables*/
+h1 {
+  text-align: center; /* Center the heading */
+  color: #333; /* Dark grey color for the heading */
+}
+
+table {
+  width: 50%; /* Full width of the page */
+  border-collapse: collapse; /* Remove spacing between cells */
+  margin: 20px 0; /* Margin above and below the table */
+}
+
+th, td {
+  padding: 12px; /* Padding inside cells */
+  border: 1px solid #ddd; /* Light grey border */
+  text-align: left; /* Align text to the left */
+}
+
+th {
+  background-color: #007BFF; /* Blue background for headers */
+  color: white; /* White text for headers */
+} 

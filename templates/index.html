@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <div>
-        <h1>Home Page</h1>
-         <p>Hello! </p>
+
+    <h1>Welcome to the image manipulator using opencv!</h1>
+    <div>
+        <img src="{{ url_for('static', filename='images/man.jpg') }}" alt="Image" style="max-width: 30%; height: auto;">
     </div>
-    <script type="text/javascript"
-            src="{{ url_for('static', filename='index.js')}}"
-    ></script>
+    <p1>
+        This is the image we will manipulating using opencv.
+    </p1>
+    <h3>Table of Contents</h3>
+    <!-- <a href="{{ url_for('views.core_operations') }}" class="button">Go to Core Operations</a> -->
+    <a href="{{ url_for('views.core_operations') }}">Core Operations</a>
+    <a href="{{ url_for('views.drawing_shapes_and_text_on_images') }}">Drawing Shapes and Text on Images</a>
+    <a href="{{ url_for('views.image_thresholding') }}">Image Thresholding</a>
+    <a href="{{ url_for('views.edge_detection') }}">Edge Detection</a>
+
+    </div>
+
 </body>
 </html>
