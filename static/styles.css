@@ -1,3 +1,10 @@
+html, body {
+  height: 100%; /* Ensure body and html take up the full height of the screen */
+  margin: 0; /* Remove default margin */
+  display: flex; /* Use flexbox to center the content */
+  justify-content: center; /* Horizontally center the table */
+}
+
 body {
   background-color: #121212; /* Dark background */
   color: #ffffff; /* Light text color */
@@ -54,9 +61,9 @@ h1 {
 }
 
 table {
-  width: 50%; /* Full width of the page */
+  width: 70%; /* Full width of the page */
   border-collapse: collapse; /* Remove spacing between cells */
-  margin: 20px 0; /* Margin above and below the table */
+  margin: 0 auto; /* Margin above and below the table */
 }
 
 th, td {
@@ -69,3 +76,15 @@ th {
   background-color: #007BFF; /* Blue background for headers */
   color: white; /* White text for headers */
 } 
+
+.image-container {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically (optional, if you want vertical centering) */
+  height: 100vh; /* Set a height to center vertically if needed */
+}
+
+img {
+  max-width: 100%; /* Ensure the image scales with the container */
+  height: auto; /* Maintain aspect ratio */
+}
