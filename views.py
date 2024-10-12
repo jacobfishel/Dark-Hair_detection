@@ -6,6 +6,10 @@ views = Blueprint("views", __name__) #creating a views blueprint
 def home():
     return render_template("index.html")
 
+@views.route("/idea")
+def idea():
+    return render_template("idea.html")
+
 @views.route("/core_operations/")
 def core_operations():
     return render_template("core_operations.html")
@@ -21,3 +25,7 @@ def image_thresholding():
 @views.route("/edge_detection/")
 def edge_detection():
     return render_template("edge_detection.html")
+
+@views.route("/practice/")
+def practice():
+    return render_template("practice.html")

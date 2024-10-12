@@ -1,5 +1,5 @@
-import cv2
 import numpy as np
+import cv2
 
 #read the image in normal and grayscale
 # image = cv2.imread(r"static\images\man.jpg", cv2.IMREAD_UNCHANGED)
@@ -53,13 +53,7 @@ imageGray = cv2.GaussianBlur(imageGray, (5, 5), 0)
 height = int(image.shape[0] / 2)
 width = int(image.shape[1] / 2)
 
-#resize images
-image = cv2.resize(image, (width, height))
-imageGray = cv2.resize(imageGray, (width, height))
 
-#show images to the screen
-# cv2.imshow("Image", image)
-# cv2.imshow("Image Gray", imageGray)
 
 #threshold this img. basic, then adaptive
 _, thresh = cv2.threshold(imageGray, 100, 255, cv2.THRESH_BINARY)
