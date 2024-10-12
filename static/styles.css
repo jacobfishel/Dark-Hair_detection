@@ -79,10 +79,13 @@ th {
 
 .image-container {
   display: flex; /* Enable flexbox */
+  flex-direction: column; /* Align items vertically */
   justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically (optional, if you want vertical centering) */
-  height: 100vh; /* Set a height to center vertically if needed */
+  align-items: center; /* Center vertically (if you want) */
+  height: 100vh; /* Set a height to center vertically */
 }
+
+
 
 img {
   max-width: 100%; /* Ensure the image scales with the container */
