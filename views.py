@@ -25,3 +25,7 @@ def image_thresholding():
 @views.route("/edge_detection/")
 def edge_detection():
     return render_template("edge_detection.html")
+
+@views.route("/practice/")
+def practice():
+    return render_template("practice.html")
