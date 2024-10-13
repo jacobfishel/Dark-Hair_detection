@@ -28,4 +28,8 @@ def edge_detection():
 
 @views.route("/practice/")
 def practice():
-    return render_template("practice.html")
+    return render_template("practice/practice.html")
+
+@views.route("/text/")
+def text():
+    return render_template("practice/text.html")
