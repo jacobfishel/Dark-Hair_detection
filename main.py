@@ -107,3 +107,19 @@
 
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
+
+import cv2
+import numpy as np
+
+img = cv2.imread(r"static\images\map.png", cv2.IMREAD_GRAYSCALE)
+width = img.shape[0] * 3
+height = img.shape[1] * 3
+
+img = cv2.resize(img, dsize = (width, height))
+adaptiveThreshGaussian = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 5, 5)
+# _, thresh = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY)
+
+cv2.imshow("image", adaptiveThreshGaussian)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
