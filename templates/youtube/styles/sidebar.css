@@ -1,8 +1,30 @@
 .sidebar {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     left: 0;
     bottom: 0;
     top: 55px;
     background-color: white;
     width: 72px;
+    z-index: 101;
+    align-items: center;
 }
+
+.home-icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    padding-top: 26px;
+    font-family: Roboto, Arial;
+    font-size: 12px;
+}
+.home-text {
+    padding-top: 30px;
+    margin-right: 20px;
+}
+
+
