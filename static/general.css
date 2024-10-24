@@ -10,14 +10,15 @@ body {
     color: rgb(164, 164, 164);
     font-family: Roboto, Arial;
     padding-bottom: 500px;
+    font-size: 20px;
 }
 
 table {
+    align-items: center;
     border-collapse: collapse;
     border: 1px solid white;
     padding: 10px;
     text-align: left;
-
 }
 
 tr {
@@ -41,22 +42,3 @@ th {
     text-align: left;
     color: rgb(213, 213, 213);
 }
-
-.table-of-contents {
-    margin-top: -16px;
-    display: flex;
-    flex-direction: column;
-  } 
-
-  .table-of-contents-non-homepage {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .default-image{
-    width: 30%;
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
