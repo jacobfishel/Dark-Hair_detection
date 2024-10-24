@@ -9,10 +9,16 @@
   align-items: center;
 }
 
-.default-image{
-  width: 30%;
-  height: 30%;
+.page-info {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.table-of-contents {
+  margin-top: -16px;
+  display: flex;
+  flex-direction: column;
 }

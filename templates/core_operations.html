@@ -3,55 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='core_operations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+
 
     <title>Core Operations</title>
     <style>
     </style>
 </head>
 <body>
-    <div>
+    <div class="">
         <h1>Welcome to Core Operations</h1>
         <!-- <div>
             <img src="{{ url_for('static', filename='images/man.jpg') }}" alt="Image" style="max-width: 30%; height: auto;">
         </div> -->
-<table>
-        <thead>
+
+        <table>
             <tr>
                 <th>Function</th>
                 <th>Purpose</th>
             </tr>
-        </thead>
-        <tbody>
             <tr>
-                <td>imread(image_path, flag)</td>
-                <td>This function is used to read an image from the specified image_path.<br><br>
+                <th>imread(image_path, flag)</th>
+                <td>Reads an image from the specified image_path.<br><br>
                     flag: Handles how the image should be read:<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;- cv2.IMREAD_COLOR, cv2.IMREAD_GRAYSCALE, cv2.IMREAD_UNCHANGED</td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;- cv2.IMREAD_COLOR, cv2.IMREAD_GRAYSCALE, cv2.IMREAD_UNCHANGED
+                </td>
             </tr>
             <tr>
-                <td>imshow(window_name, image)</td>
-                <td>Used to show the image in the window<br><br>
+                <th>imshow(window_name, image)</th>
+                <td>Shows the image in the window<br><br>
                     window_name: str to name the window<br><br>
                     image: read image</td>
             </tr>
             <tr>
-            </tr>
-                <td>imwrite(filename, image)</td>
-                <td>Used to save an image<br><br>
+                <th>imwrite(filename, image)</th>
+                <td>Saves an image<br><br>
                     filename: path to save image to including image name and .png<br><br>
                     image: image to save</td>
             </tr>
-        </tbody>
-    </table>
-    <h1>Code:</h1>
-    <div class="">
-        <img src="{{ url_for('static', filename='images/show_image_code.png') }}" alt="Image" style="height: auto;">
-    </div>
+        </table>
 
+        <h1>Code:</h1>
+        <div class="">
+            <img src="{{ url_for('static', filename='images/show_image_code.png') }}" alt="Image" style="height: auto;">
+        </div>
+        <div>
+            <img class="default-image" src="{{ url_for('static', filename='images/man.jpg') }}" alt="Image">
+        </div>
 
-        <a href="{{ url_for('views.drawing_shapes_and_text_on_images') }}">Next Section: Drawing Shapes and Text on Images</a>
-        <a href="{{ url_for('views.home')}}">Home</a>
+        <div class="table-of-contents-non-homepage"> 
+            <a href="{{ url_for('views.drawing_shapes_and_text_on_images') }}">Next Section: Drawing Shapes and Text on Images</a>
+            <a href="{{ url_for('views.home')}}">Home</a>
+        </div>
+       
 
 
 
