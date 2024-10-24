@@ -4,14 +4,6 @@
   flex-direction: column;
 } 
 
-.default-image{
-  width: 50%;
-  height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .core-operations-page {
   display: flex;
   align-items: center;
