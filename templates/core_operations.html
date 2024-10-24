@@ -50,24 +50,23 @@
         </table>
 
         <h1>Code:</h1>
-        <div>
+        <div class="code-image">
             <img src="{{ url_for('static', filename='images/show_image_code.png') }}" alt="Image" style="height: auto;">
         </div>
         <div>
-            <button class="core-operations-button">Read default</button>
-            <button>Upload your own image</button>
+            Click to load the image
+        </div>
+        <div>
+            <button class="core-operations-button" id="default-image">Read default</button>
+            <button class="core-operations-button">Upload your own image</button>
         </div>
 
         <div class="table-of-contents-non-homepage"> 
             <a href="{{ url_for('views.drawing_shapes_and_text_on_images') }}">Next Section: Drawing Shapes and Text on Images</a>
             <a href="{{ url_for('views.home')}}">Home</a>
         </div>
-       
-
-
-
     </div>
 
-    
+    <script src="core-operations.js"></script>
 </body>
 </html>

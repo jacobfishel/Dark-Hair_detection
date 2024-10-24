@@ -17,4 +17,25 @@
   justify-content: center;
 }
 
+.code-image {
+  margin-bottom: 50px;
+}
+
+.core-operations-button {
+  background-color: gray;
+  border-radius: 4%;
+  padding: 10px;
+}
+
+.core-operations-button:hover {
+  background-color: rgb(183, 182, 182);
+  transition: background-color 0.015s;
+}
+
+.core-operations-button:active {
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+
+
 /* <img class="default-image" src="{{ url_for('static', filename='images/man.jpg') }}" alt="Image"> */
