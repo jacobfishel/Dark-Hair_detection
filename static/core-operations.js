@@ -3,7 +3,6 @@ document.getElementById('imageInput').addEventListener('change', function(event)
     const file = event.target.files[0];
 
     if (file) {
-        console.log("File");
         const reader = new FileReader();
 
         reader.onload = function(e) {

@@ -1,6 +1,8 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, request
+import os
 
 views = Blueprint("views", __name__) #creating a views blueprint
+
 
 @views.route("/")
 def home():

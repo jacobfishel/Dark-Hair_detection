@@ -59,17 +59,17 @@
         <div>
             <button class="core-operations-button" id="default-image">Read default</button>
             <button class="core-operations-button">Upload your own image</button>
-            <input type="file" id="imageInput" accept="image/">
         </div>
         
-        <!-- div to display the input image -->
-        <div>
-            <img id="uploadedImage" src="" alt="Uploaded Image" style="display: none; max-width: 100%; height: auto;">
-        </div>
+        <!-- Form to upload the image -->
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" id="imageInput" name="image" accept="image/*" required>
+            <button type="submit">Upload Image</button>
+        </form>
 
-        <div class="table-of-contents-non-homepage"> 
-            <a href="{{ url_for('views.drawing_shapes_and_text_on_images') }}">Next Section: Drawing Shapes and Text on Images</a>
-            <a href="{{ url_for('views.home')}}">Home</a>
+        <!-- Container to display the uploaded image preview -->
+        <div id="imageContainer">
+            <img id="uploadedImage" src="" alt="Uploaded Image" style="display: none; max-width: 100%; height: auto;">
         </div>
     </div>
 
