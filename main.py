@@ -111,15 +111,28 @@
 import cv2
 import numpy as np
 
-img = cv2.imread(r"static\images\map.png", cv2.IMREAD_GRAYSCALE)
-width = img.shape[0] * 3
-height = img.shape[1] * 3
+# img = cv2.imread(r"static\images\map.png", cv2.IMREAD_GRAYSCALE)
+# width = img.shape[0] * 3
+# height = img.shape[1] * 3
 
-img = cv2.resize(img, dsize = (width, height))
-adaptiveThreshGaussian = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 5, 5)
-# _, thresh = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY)
+# img = cv2.resize(img, dsize = (width, height))
+# adaptiveThreshGaussian = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 5, 5)
+# # _, thresh = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY)
 
-cv2.imshow("image", adaptiveThreshGaussian)
+# cv2.imshow("image", adaptiveThreshGaussian)
 
-cv2.waitKey(0)
+cap = cv2.VideoCapture(0)
+
+while True:
+    _, read = cap.read()
+    gray = read[:,:,1]
+
+    threshold = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
+
+    cv2.imshow("camera", threshold)
+
+
+
+    if cv2.waitKey(1) == ord('q'):
+        break
 cv2.destroyAllWindows()
