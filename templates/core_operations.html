@@ -53,26 +53,17 @@
         <div class="code-image">
             <img src="{{ url_for('static', filename='images/show_image_code.png') }}" alt="Image" style="height: auto;">
         </div>
-        <div>
-            Click to load the image
-        </div>
-        <div>
-            <button class="core-operations-button" id="default-image">Read default</button>
-            <button class="core-operations-button">Upload your own image</button>
-        </div>
-        
-        <!-- Form to upload the image -->
-        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" id="imageInput" name="image" accept="image/*" required>
-            <button type="submit">Upload Image</button>
-        </form>
 
-        <!-- Container to display the uploaded image preview -->
-        <div id="imageContainer">
-            <img id="uploadedImage" src="" alt="Uploaded Image" style="display: none; max-width: 100%; height: auto;">
+        <div class="upload_image">
+            <img class="default-image" src="{{ url_for('static', filename='images/man.jpg') }}" alt="Upload an image" id="displayed-image">
+            <button class="core-operations-button" onclick="document.getElementById('file-input').click();">Upload your own image</button>
+            <input type="file" accept="image/*" id="file-input">
         </div>
+
     </div>
 
-    <script src="core-operations.js"></script>
+    <!-- <script src="core-operations.js"></script> -->
+    <script src="{{ url_for('static', filename='js/core-operations.js') }}"></script>
+
 </body>
 </html>

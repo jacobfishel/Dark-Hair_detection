@@ -42,3 +42,14 @@ th {
     text-align: left;
     color: rgb(213, 213, 213);
 }
+
+label{
+    display: block;
+    width: auto;
+    background: #e3362c;
+    color: #fff;
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
