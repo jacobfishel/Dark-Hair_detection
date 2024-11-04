@@ -1,138 +1,94 @@
-# import numpy as np
-# import cv2
-
-# #read the image in normal and grayscale
-# # image = cv2.imread(r"static\images\man.jpg", cv2.IMREAD_UNCHANGED)
-# # imageGray = cv2.imread(r"static\images\man.jpg", cv2.IMREAD_GRAYSCALE)
-
-
-# #get the dimensions to eventually resize images to fit screen
-# # height = int(image.shape[0] / 7)
-# # width = int(image.shape[1] / 7)
-
-# # #resize images
-# # image = cv2.resize(image, (width, height))
-# # imageGray = cv2.resize(imageGray, (width, height))
-
-# # #show images to the screen
-# # cv2.imshow("Image", image)
-# # cv2.imshow("Image Gray", imageGray)
-
-# #cropping the images to just get the man
-# # cropMan = image[125: 485, 255: 600]
-# # cropManGray = imageGray[125: 485, 255: 600]
-
-# #show the cropped images
-# # cv2.imshow("Cropped Man", cropMan)
-# # cv2.imshow("Cropped Man Gray", cropManGray)
-
-# #Drawing a box around the man
-# # manWithBox = cv2.rectangle(image, (255, 125), (600, 485), (255, 0, 0), 3)
-# # manWithBoxGray = cv2.rectangle(imageGray, (255, 125), (600, 485), (1, 255, 0), 3)
-
-# #Show the boxed man
-# # cv2.imshow("Boxed man", manWithBox)
-# # cv2.imshow("Boxed man Gray", manWithBoxGray)
-
-# #IMAGE THRESHOLDING
-# # _, thresh = cv2.threshold(imageGray, 127, 255, cv2.THRESH_BINARY)
-# # adaptiveThresh = cv2.adaptiveThreshold(imageGray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 2)
-# # cv2.imshow("Thresholded img", thresh)
-# # cv2.imshow("Adaptive Thresholded img", adaptiveThresh)
-
-
-# '''NEW IMAGE TO GET BETTER THRESHOLDING'''
-# image = cv2.imread(r"static\images\people-walking.jpg", cv2.IMREAD_UNCHANGED)
-# imageGray = cv2.imread(r"static\images\people-walking.jpg", cv2.IMREAD_GRAYSCALE)
-
-# #Apply gaussian blur to smooth out image
-# image = cv2.GaussianBlur(image, (5, 5), 0)
-# imageGray = cv2.GaussianBlur(imageGray, (5, 5), 0)
-
-# # get the dimensions to eventually resize images to fit screen
-# height = int(image.shape[0] / 2)
-# width = int(image.shape[1] / 2)
-
-
-
-# #threshold this img. basic, then adaptive
-# _, thresh = cv2.threshold(imageGray, 100, 255, cv2.THRESH_BINARY)
-# adaptiveThresh = cv2.adaptiveThreshold(imageGray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 7, -5)
-# adaptiveThreshGaussian = cv2.adaptiveThreshold(imageGray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 7, -5)
-
-# method = cv2.adaptiveThreshold(thresh, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 5, 10)
-
-
-# # cv2.imshow("Image", imageGray)
-# cv2.imshow("Thresholded", thresh)
-# # cv2.imshow("Adaptive", adaptiveThresh)
-# # cv2.imshow("Gaussian", adaptiveThresh)
-# cv2.imshow("Gaussian", method)
-
-
-
-
-
-# '''Page image'''
-
-# # image = cv2.imread(r"static\images\page.jpg", cv2.IMREAD_UNCHANGED)
-# # imageGray = cv2.imread(r"static\images\page.jpg", cv2.IMREAD_GRAYSCALE)
-
-# # # get the dimensions to eventually resize images to fit screen
-# # # height = int(image.shape[0] / 2)
-# # # width = int(image.shape[1] / 2)
-
-# # # #resize images
-# # # image = cv2.resize(image, (width, height))
-# # # imageGray = cv2.resize(imageGray, (width, height))
-
-# # image = image[0: 300, 0: 300 ]
-# # imageGray = imageGray[0: 300, 0: 300 ]
-
-# # #show images to the screen
-# # # cv2.imshow("Image", image)
-# # # cv2.imshow("Image Gray", imageGray)
-
-# # #threshold this img. basic, then adaptive
-# # _, thresh = cv2.threshold(imageGray, 127, 255, cv2.THRESH_BINARY)
-# # adaptiveThresh = cv2.adaptiveThreshold(imageGray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
-# # adaptiveThreshGaussian = cv2.adaptiveThreshold(imageGray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
-
-
-
-# # cv2.imshow("Image", imageGray)
-# # cv2.imshow("Thresholded", thresh)
-# # cv2.imshow("Adaptive", adaptiveThresh)
-# # cv2.imshow("Gaussian", adaptiveThreshGaussian)
-
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-
 import cv2
 import numpy as np
 
-# img = cv2.imread(r"static\images\map.png", cv2.IMREAD_GRAYSCALE)
-# width = img.shape[0] * 3
-# height = img.shape[1] * 3
-
-# img = cv2.resize(img, dsize = (width, height))
-# adaptiveThreshGaussian = cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 5, 5)
-# # _, thresh = cv2.threshold(img, 150, 255, cv2.THRESH_BINARY)
-
-# cv2.imshow("image", adaptiveThreshGaussian)
-
+#create the VideoCapture object
 cap = cv2.VideoCapture(0)
 
-while True:
-    _, read = cap.read()
-    gray = read[:,:,1]
+while cap.isOpened():
 
-    threshold = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
-
-    cv2.imshow("camera", threshold)
-
-
-
-    if cv2.waitKey(1) == ord('q'):
+    #read the frames
+    ret, frame = cap.read()
+    if not ret:
         break
-cv2.destroyAllWindows()
+
+    #apply a gaussian blue to reduce noise
+    blur = cv2.GaussianBlur(frame, (7, 7), 0)
+    
+    #convert to grayscale
+    gray = cv2.cvtColor(blur, cv2.COLOR_BGR2GRAY)
+
+
+    #threshold (Use regular to have full control over threshold value)
+    # _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV +cv2.THRESH_OTSU)
+    _, thresh = cv2.threshold(gray, 50, 255, cv2.THRESH_BINARY_INV)
+
+
+    #Open (erode, then dilate)
+    kernel = np.ones((5, 5), np.uint8)
+    open = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+    cv2.imshow("Open", open)
+
+    #adaptive threshold
+    # adaptiveThresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 15, 2)
+    # cv2.imshow("Thresh", thresh)
+
+    #get the coutours
+    contours, _ = cv2.findContours(open, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    headcount = 0
+    #loop through the contours and check the area
+    for contour in contours:
+
+        #calculate the contour area to get the rough area that hair would take up in frame
+        area = cv2.contourArea(contour)
+
+        #calculate perimeter and circular to check for circularity similar to hair shape
+        perimeter = cv2.arcLength(contour, True)
+
+        if perimeter == 0:
+            continue
+
+        circularity = (4 * np.pi * area) / (perimeter * perimeter)
+
+        #AREA
+        if 3500 < area < 19000:
+
+            #CIRCULARITY
+            if circularity > 0.1: 
+
+                x, y, w, h = cv2.boundingRect(contour)
+                aspectRatio = w / float(h)
+            
+                #ASPECT RATIO
+                if 0.7 < aspectRatio < 1.3:
+
+                    hull = cv2.convexHull(contour)
+                    hullArea = cv2.contourArea(hull)
+
+                    convexity = area / hullArea if hullArea > 0 else 0   
+
+                    #CONVEXITY
+                    if 0.3 < convexity < 0.9:
+
+                        #if all conditions pass, increase head count, draw contours, bounding box and put text
+                        headcount += 1
+                        cv2.drawContours(frame, [contour], -1, (0, 255, 0), 2)
+
+                        cv2.putText(frame, f"Contour area: {area}", (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 0)
+                        cv2.putText(frame, f"Circularity: {circularity}", (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 0)
+                        cv2.putText(frame, f"Aspect ratio: {aspectRatio}", (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 0)
+                        cv2.putText(frame, f"Convexity : {convexity}", (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 0)
+
+                        cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)  # Draw bounding box
+
+
+
+    cv2.putText(frame, f"Head Count: {headcount}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 0)
+
+    #display webcam feed
+    cv2.imshow("Head Detection", frame)
+
+    #press q to terminate
+    if cv2.waitKey(1) == ord('q'):
+        cv2.destroyAllWindows()
+        break
